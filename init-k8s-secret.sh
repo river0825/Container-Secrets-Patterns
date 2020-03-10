@@ -25,7 +25,7 @@ echoStep()
 mkdir k8s-test; cd k8s-test
 
 echoStep "1. 預備 secret 的資訊"
-echoAndWait "echo -n 'ftpadmin' > ./ftp-username"
+echoAndWait "echo -n 'ftpadmin' > ./ftp-username"  "${MARK}# press Enter to continue${NC}"
 echoAndWait "echo -n 'password-of-ftp' > ./ftp-password"
 echoAndWait "echo -n 'dbadm' > ./db-username"
 echoAndWait "echo -n 'password-of-db' > ./db-password"
