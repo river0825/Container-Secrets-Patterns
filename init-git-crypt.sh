@@ -66,7 +66,7 @@ git push
 echoStep "5. 檢查檔案是否真的被加密${NC}"
 echoAndWait "git-crypt status"
 
-echoAndWait "cat aa.key" "${MARK}#來看一下 aa.key 的內容。unlock 的狀態。所以 aa.key 目前還是明碼${NC}"
+echoAndWait "cat aa.key" "${MARK}#來看一下 aa.key 的內容。目前處於 unlock 的狀態。所以 aa.key 目前還是明碼${NC}"
 echoAndWait "cat bb.txt" "${MARK}#再來看一下 bb.txt 的內容，應該是明碼${NC}"
 echoAndWait "git-crypt lock"  "${MARK}#進行 lock${NC}"
 echoAndWait "cat aa.key" "${MARK}#再來看一下 aa.key 的內容，aa.key 應該會是加密的內容${NC}"
