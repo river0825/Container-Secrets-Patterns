@@ -54,9 +54,10 @@ echo "It will not be encrypted" > bb.txt
 read
 
 echoStep "4. 將檔案加入 git 之中${NC}"
-echo "> git add *; git add .gitattributes
-> git commit -m "initial commit"
-> git push # ${HINT}press enter to continue${NC}" 
+echo -en "> git add *; git add .gitattributes
+> git commit -m 'initial commit'
+> git push 
+# ${HINT}press enter to continue${NC}" 
 
 read;
 
