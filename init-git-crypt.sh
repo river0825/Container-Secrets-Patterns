@@ -22,6 +22,11 @@ echoStep()
     echo ""
 }
 
+apt update; apt install git-crypt; 
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git config --global push.default simple
+
 # 0. 安裝 git-crypt [以 MacOS 為例]
 echoStep "1. 建立空的 repository"
 mkdir git-crypt-test; cd git-crypt-test
