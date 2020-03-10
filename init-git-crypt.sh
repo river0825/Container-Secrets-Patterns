@@ -9,7 +9,7 @@ SEPERATOR='\033[95m'
 echoAndWait()
 {
     FOLDER=$(pwd |  awk -F "/"  '{print $NF}')
-    echo -e "${HINT}${FOLDER} ${SEPERATOR}> ${NC} ${1} ${2}" 
+    echo -en "${HINT}${FOLDER} ${SEPERATOR}> ${NC} ${1} ${2}" 
     read
     eval ${1}
     echo ""
@@ -66,12 +66,11 @@ git push
 echoStep "5. 檢查檔案是否真的被加密${NC}"
 echoAndWait "git-crypt status"
 
-echoAndWait "cat aa.key" "${MARK}#來看一下 aa.key 的內容${NC}"
-echoAndWait "" "${MARK}#因為這個目錄是處理 unlock 的狀態。所以 aa.key 目前還是明碼${NC}"
-echoAndWait "cat bb.txt" "${MARK}#來看一下 bb.txt 的內容${NC}"
+echoAndWait "cat aa.key" "${MARK}#來看一下 aa.key 的內容。unlock 的狀態。所以 aa.key 目前還是明碼${NC}"
+echoAndWait "cat bb.txt" "${MARK}#再來看一下 bb.txt 的內容，應該是明碼${NC}"
 echoAndWait "git-crypt lock"  "${MARK}#進行 lock${NC}"
-echoAndWait "cat aa.key" "${MARK}#再來看一下 aa.key 及 bb.txt 的內容${NC}"
-echoAndWait "cat bb.txt"
+echoAndWait "cat aa.key" "${MARK}#再來看一下 aa.key 的內容，aa.key 應該會是加密的內容${NC}"
+echoAndWait "cat bb.txt" "${MARK}#再來看一下 bb.txt 的內容，bb.txt 的內肉應該保持明碼${NC}"
 
 cd ..
 
