@@ -18,7 +18,7 @@ echoAndWait()
 echoStep()
 {
     echo ""
-    echo -e "${INFO} ${1}${NC}"
+    echo -e "${INFO} ${1}${NC} ${2}"
     echo ""
 }
 
@@ -37,5 +37,5 @@ echoAndWait "kubectl describe secrets/db-user-pass" "${MARK}# 取得 secret 的�
 
 echo Step "2. 存取控管 - 將 secret 佈署至 pod 中"
 echoAndWait "kubectl apply -f https://raw.githubusercontent.com/river0825/Container-Secrets-Patterns/master/secret-envars-pod.yml" "${MARK}# 啟動 pod${NC}"
-echoStep "kubectl exec -it secret-envars-test-pod -- /bin/bash -c 'printenv | grep -i SECRET'" "${MARK}# 進入 POD 中，將 secret 列出來，可以看到剛剛設定的 secret 已經變成環境變數了${NC}"
+echoAndWait "kubectl exec -it secret-envars-test-pod -- /bin/bash -c 'printenv | grep -i SECRET'" "${MARK}# 進入 POD 中，將 secret 列出來，可以看到剛剛設定的 secret 已經變成環境變數了${NC}"
 
